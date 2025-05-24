@@ -18,14 +18,14 @@ export const fetchProducts = createAsyncThunk('products/fetchProducts', async ()
 });
 
 // ✅ Thunk: thêm sản phẩm mới
-// export const addProduct = createAsyncThunk('products/addProduct', async (product) => {
-//   const res = await fetch(BASE_URL, {
-//     method: 'POST',
-//     headers: { 'Content-Type': 'application/json' },
-//     body: JSON.stringify(product),
-//   });
-//   return await res.json();
-// });
+export const addProduct = createAsyncThunk('products/addProduct', async (product) => {
+  const res = await fetch(BASE_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(product),
+  });
+  return await res.json();
+});
 
 // ✅ Thunk: cập nhật sản phẩm
 export const updateProduct = createAsyncThunk('products/updateProduct', async ({ id, data }) => {
@@ -64,9 +64,9 @@ const productSlice = createSlice({
         state.error = action.error.message;
       })
       // Add
-    //   .addCase(addProduct.fulfilled, (state, action) => {
-    //     state.products.push(action.payload);
-    //   })
+      .addCase(addProduct.fulfilled, (state, action) => {
+        state.products.push(action.payload);
+      })
       // Update
       .addCase(updateProduct.fulfilled, (state, action) => {
         const index = state.products.findIndex((p) => p.id === action.payload.id);
