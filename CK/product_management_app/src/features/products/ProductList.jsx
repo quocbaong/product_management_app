@@ -1,11 +1,13 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import ProductCard from '../../components/ProductCard';
+import LoadingSpinner from '../../components/LoadingSpinner';
+
 
 const ProductList = () => {
   const { products, loading, error } = useSelector((state) => state.products);
 
-  if (loading) return <p>Đang tải...</p>;
+  if (loading) return <LoadingSpinner />;
   if (error) return <p>Lỗi: {error}</p>;
 
   return (
