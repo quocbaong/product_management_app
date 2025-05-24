@@ -28,14 +28,14 @@ export const addProduct = createAsyncThunk('products/addProduct', async (product
 });
 
 // ✅ Thunk: cập nhật sản phẩm
-export const updateProduct = createAsyncThunk('products/updateProduct', async ({ id, data }) => {
-  const res = await fetch(`${BASE_URL}/${id}`, {
-    method: 'PUT',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(data),
-  });
-  return await res.json();
-});
+// export const updateProduct = createAsyncThunk('products/updateProduct', async ({ id, data }) => {
+//   const res = await fetch(`${BASE_URL}/${id}`, {
+//     method: 'PUT',
+//     headers: { 'Content-Type': 'application/json' },
+//     body: JSON.stringify(data),
+//   });
+//   return await res.json();
+// });
 
 // ✅ Thunk: xóa sản phẩm
 // export const deleteProduct = createAsyncThunk('products/deleteProduct', async (id) => {
@@ -68,12 +68,12 @@ const productSlice = createSlice({
         state.products.push(action.payload);
       })
       // Update
-      .addCase(updateProduct.fulfilled, (state, action) => {
-        const index = state.products.findIndex((p) => p.id === action.payload.id);
-        if (index !== -1) {
-          state.products[index] = action.payload;
-        }
-      })
+      // .addCase(updateProduct.fulfilled, (state, action) => {
+      //   const index = state.products.findIndex((p) => p.id === action.payload.id);
+      //   if (index !== -1) {
+      //     state.products[index] = action.payload;
+      //   }
+      // })
       // Delete
     //   .addCase(deleteProduct.fulfilled, (state, action) => {
     //     state.products = state.products.filter((p) => p.id !== action.payload);

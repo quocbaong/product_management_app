@@ -20,8 +20,9 @@ const AddProduct = () => {
     e.preventDefault();
 
     try {
-      await dispatch(addProduct(form)).unwrap(); 
-      navigate('/'); 
+      await dispatch(addProduct(form)).unwrap();
+      alert('Thêm sản phẩm thành công'); // ✅ Thông báo thành công
+      navigate('/');
     } catch (error) {
       alert('Thêm sản phẩm thất bại');
     }
@@ -29,7 +30,7 @@ const AddProduct = () => {
 
   return (
     <div className="p-4 max-w-xl mx-auto">
-        <button
+      <button
         onClick={() => navigate(-1)}
         className="mb-4 text-white bg-gray-500 px-3 py-1 rounded hover:bg-gray-600"
       >
