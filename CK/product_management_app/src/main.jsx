@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
-import './index.css'; // hoặc ./main.css nếu bạn dùng Tailwind
+import './index.css'; 
 import { Provider } from 'react-redux';
-import { store } from './store'; // ✅ đúng đường dẫn đến store.js
+import { store } from './store'; 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <Provider store={store}>   {/* ✅ Đây là phần bắt buộc */}
+    <Provider store={store}>   
       <App />
     </Provider>
   </React.StrictMode>
