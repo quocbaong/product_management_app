@@ -36,12 +36,12 @@ export const updateProduct = createAsyncThunk('products/updateProduct', async ({
   });
   return await res.json();
 });
-
+// 
 // ✅ Thunk: xóa sản phẩm
-// export const deleteProduct = createAsyncThunk('products/deleteProduct', async (id) => {
-//   await fetch(`${BASE_URL}/${id}`, { method: 'DELETE' });
-//   return id;
-// });
+export const deleteProduct = createAsyncThunk('products/deleteProduct', async (id) => {
+  await fetch(`${BASE_URL}/${id}`, { method: 'DELETE' });
+  return id;
+});
 
 // ✅ Slice
 const productSlice = createSlice({
@@ -75,9 +75,9 @@ const productSlice = createSlice({
         }
       })
       // Delete
-    //   .addCase(deleteProduct.fulfilled, (state, action) => {
-    //     state.products = state.products.filter((p) => p.id !== action.payload);
-    //   });
+      .addCase(deleteProduct.fulfilled, (state, action) => {
+        state.products = state.products.filter((p) => p.id !== action.payload);
+      });
   },
 });
 

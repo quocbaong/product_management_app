@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { fetchProducts } from '../features/products/productSlice';
 import ProductList from '../features/products/ProductList';
-import { Link } from 'react-router-dom'; // <-- Thêm dòng này
+import { Link } from 'react-router-dom'; 
 
 const Home = () => {
   const dispatch = useDispatch();

@@ -21,7 +21,7 @@ const AddProduct = () => {
 
     try {
       await dispatch(addProduct(form)).unwrap();
-      alert('Thêm sản phẩm thành công'); // ✅ Thông báo thành công
+      alert('Thêm sản phẩm thành công'); 
       navigate('/');
     } catch (error) {
       alert('Thêm sản phẩm thất bại');
