@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+import LoadingSpinner from '../components/LoadingSpinner';
 
 const ProductDetail = () => {
   const { id } = useParams();
@@ -16,20 +17,20 @@ const ProductDetail = () => {
       });
   }, [id]);
 
-  if (loading) return <p>Đang tải chi tiết...</p>;
+  if (loading) return <LoadingSpinner />;
   if (!product) return <p>Không tìm thấy sản phẩm.</p>;
 
   return (
-    <div className="p-4">
+    <div className="p-4 max-w-2xl mx-auto">
       <button
         onClick={() => navigate(-1)}
         className="mb-4 text-white bg-gray-500 px-3 py-1 rounded hover:bg-gray-600"
       >
         ← Quay lại
       </button>
-      <div className="border p-4 rounded shadow">
+      <div className="border p-4 rounded shadow jus">
         {product.image && (
-          <img src={product.image} alt={product.name} className="w-full h-60 object-cover mb-4" />
+          <img src={product.image} alt={product.name} className="w-max h-100 object-cover mb-4 ml-28" />
         )}
         <h2 className="text-2xl font-bold">{product.name}</h2>
         <p className="text-gray-700 my-2">{product.description}</p>
